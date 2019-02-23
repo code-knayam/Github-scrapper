@@ -12,6 +12,10 @@ async function run() {
 		console.log("The file was reset!");
 	});
 
+	const SEARCH_STRING = '<TEXT TO SEARCH>';
+	// Repositories, Code, Commits, Issues, Users, Wikis
+	const TYPE_OF_SEARCH = 'Users';
+
 	const USERNAME_SELECTOR = '#login_field';
 	const PASSWORD_SELECTOR = '#password';
 	const BUTTON_SELECTOR = '#login > form > div.auth-form-body.mt-3 > input.btn.btn-primary.btn-block';
@@ -41,8 +45,7 @@ async function run() {
 	await page.waitForNavigation();
 
 
-	const USER_TO_SEARCH = 'mayank';
-	const SEARCH_URL = `https://github.com/search?q=${USER_TO_SEARCH}&type=Users`;
+	const SEARCH_URL = `https://github.com/search?q=${SEARCH_STRING}&type=Users`;
 
 	await page.goto(SEARCH_URL);
 	await page.waitFor(2 * 1000);
